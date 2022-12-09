@@ -9,6 +9,7 @@ Dataset
 We made use of the KITTI dataset. It is a well known benchmark dataset collected for the autonomous driving platform. The sensors include a wide-angle camera and a Velodyne HDL-64E LiDAR. The dataset contains both 2D and 3D annotations of cars, pedestrians, and cyclists. It contains 7481 training images and 7518 testing images including calibration files.
 
 Download the 3D KITTI detection dataset from here.
+
   https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
 
 
