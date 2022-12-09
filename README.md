@@ -1,11 +1,18 @@
-# Surveying and Real-time Asset and Inventory Management practices in Civil engineering are often associated with time consuming, labor intensive and financially demanding exercises. These exercises include manual inspections, disruption of traffic, safety concerns and the use of semi-automated equipment/technology that often results in inefficient data collection processes.
-# The consequences of these inefficient processes are misallocation of resources, protracted projects, and reduction in profits. To alleviate this problem 2D detection algorithms have been utilized in the industry for data collection purposes.
-# However, there are also limitations in using 2-D Object Detection Algorithms, as we are unable to capture the dimensionalities, localize the object position and understand the depth of the object. These problems are critical to object detection as cameras will only be able to depict the surroundings in 2D and they are also affected by lighting and weather conditions.
-# In conclusion, surveying practices are still outdated and there is an immediate need to adopt 3D object detection algorithms to make accurate data driven decisions.​
+Introduction
+
+Complex-YOLOv3 is a 3D Object Detection framework based on deep learning with the help of Convolutional Neural Networks. It takes in a birds-eye-view representation which is projected from 3D LiDAR point cloud and applies a YOLOV3 architecture. Furthermore, it utilizes a Euler Regional-Proposal Network for reliable angle regression to detect accurate multi-class oriented 3D objects. 
+
+Real-time Asset Inventory is a practice that allows asset-intensive industries e.g. Transportation, healthcare, manufacturing etc., to instantly locate physical assets both indoors and outdoors, monitor their condition and usage and optimize asset allocation. Millions of dollars in losses are caused by the misplacement and destruction of road assets, adopting an effective 3D Object Detection model, Companies can achieve accurate and efficient real-time detection of valuable assets and thereby drastically reducing these losses. 
+
+Dataset
+
+We made use of the KITTI dataset. It is a well known benchmark dataset collected for the autonomous driving platform. The sensors include a wide-angle camera and a Velodyne HDL-64E LiDAR. The dataset contains both 2D and 3D annotations of cars, pedestrians, and cyclists. It contains 7481 training images and 7518 testing images including calibration files.
+
+Download the 3D KITTI detection dataset from here.
+  https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
 
 
 Data Preparation:
-  Download the 3D KITTI detection dataset from here.
 
   The downloaded data includes:
 
