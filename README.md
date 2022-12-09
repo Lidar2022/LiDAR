@@ -92,3 +92,59 @@ python evaluate.py --gpu_idx 0 --pretrained_path <PATH> --cfgfile <CFG> --img_si
       tensorboard --logdir=./
 
     Then go to http://localhost:6006/:
+    
+${ROOT}
+└── checkpoints/    
+    ├── complexer_yolo/
+        └── Model_complexer_yolo_epoch_4280.pth
+└── dataset/    
+    └── kitti/
+        ├──ImageSets/
+        │   ├── train.txt
+        │   └── val.txt
+        ├── training/
+        │   ├── image_2/ <-- for visualization
+        │   ├── calib/
+        │   ├── label_2/
+        │   └── velodyne/
+        └── testing/  
+        │   ├── image_2/ <-- for visualization
+        │   ├── calib/
+        │   └── velodyne/ 
+        └── classes_names.txt
+└── src/
+    ├── config/
+    ├── cfg/
+        │   ├── complex_yolov3.cfg
+        │   ├── complex_yolov3_tiny.cfg
+        │   ├── complex_yolov4.cfg
+        │   ├── complex_yolov4_tiny.cfg
+    │   ├── train_config.py
+    │   └── kitti_config.py
+    ├── data_process/
+    │   ├── kitti_bev_utils.py
+    │   ├── kitti_dataloader.py
+    │   ├── kitti_dataset.py
+    │   ├── kitti_data_utils.py
+    │   ├── train_val_split.py
+    │   └── transformation.py
+    ├── models/
+    │   ├── darknet2pytorch.py
+    │   ├── darknet_utils.py
+    │   ├── model_utils.py
+    │   ├── yolo_layer.py
+    └── utils/
+    │   ├── evaluation_utils.py
+    │   ├── iou_utils.py
+    │   ├── logger.py
+    │   ├── misc.py
+    │   ├── torch_utils.py
+    │   ├── train_utils.py
+    │   └── visualization_utils.py
+    ├── evaluate.py
+    ├── test.py
+    ├── test.sh
+    ├── train.py
+    └── train.sh
+├── README.md 
+└── requirements.txt
