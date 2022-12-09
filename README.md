@@ -1,10 +1,10 @@
-Introduction
+##Introduction
 
 Complex-YOLOv3 is a 3D Object Detection framework based on deep learning with the help of Convolutional Neural Networks. It takes in a birds-eye-view representation which is projected from 3D LiDAR point cloud and applies a YOLOV3 architecture. Furthermore, it utilizes a Euler Regional-Proposal Network for reliable angle regression to detect accurate multi-class oriented 3D objects. 
 
 Real-time Asset Inventory is a practice that allows asset-intensive industries e.g. Transportation, healthcare, manufacturing etc., to instantly locate physical assets both indoors and outdoors, monitor their condition and usage and optimize asset allocation. Millions of dollars in losses are caused by the misplacement and destruction of road assets, adopting an effective 3D Object Detection model, Companies can achieve accurate and efficient real-time detection of valuable assets and thereby drastically reducing these losses. 
 
-Dataset
+##Dataset
 
 We made use of the KITTI dataset. It is a well known benchmark dataset collected for the autonomous driving platform. The sensors include a wide-angle camera and a Velodyne HDL-64E LiDAR. The dataset contains both 2D and 3D annotations of cars, pedestrians, and cyclists. It contains 7481 training images and 7518 testing images including calibration files.
 
@@ -13,7 +13,7 @@ Download the 3D KITTI detection dataset from here.
   https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
 
 
-Data Preparation:
+##Data Preparation:
 
   The downloaded data includes:
 
@@ -22,7 +22,7 @@ Data Preparation:
     Camera calibration matrices of object data set (16 MB): for visualization of  predictions
     Left color images of object data set (12 GB): for visualization of predictions
     
-How to run
+##How to run
 
   Visualize the dataset (both BEV images from LiDAR and camera images)
 
@@ -44,46 +44,46 @@ How to run
 
       python kitti_dataloader.py --show-train-data --cutout_prob 1. --cutout_nholes 1 --cutout_fill_value 1. --cutout_ratio 0.3 --output-width 608
 
- Inference
+# Inference
 
     Download the trained model from here, then put it to ${ROOT}/checkpoints/ and execute:
 
     python test.py --gpu_idx 0 --pretrained_path../checkpoints/complex_yolov4/complex_yolov4_mse_loss.pth --cfgfile./config/cfg/complex_yolov4.cfg --show_image
 
-  Evaluation
+ # Evaluation
 
 python evaluate.py --gpu_idx 0 --pretrained_path <PATH> --cfgfile <CFG> --img_size <SIZE> --conf-thresh <THRESH> --nms-thresh <THRESH> --iou-thresh <THRESH>
 (The conf-thresh, nms-thresh, and iou-thresh params can be adjusted. By default, these params have been set to 0.5)
 
-  Training
+ # Training
 
     Single machine, single gpu
 
       python train.py --gpu_idx 0 --batch_size <N> --num_workers <N>...
 
-  Multi-processing Distributed Data Parallel Training
+  #Multi-processing Distributed Data Parallel Training
 
     We should always use the nccl backend for multi-processing distributed training since it currently provides the best distributed training performance.
 
-    Single machine (node), multiple GPUs
+    #Single machine (node), multiple GPUs
 
       python train.py --dist-url 'tcp://127.0.0.1:29500' --dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0
 
-    Two machines (two nodes), multiple GPUs
+    #Two machines (two nodes), multiple GPUs
 
-      First machine
+      #First machine
 
         python train.py --dist-url 'tcp://IP_OF_NODE1:FREEPORT' --dist-backend 'nccl' --multiprocessing-distributed --world-size 2 --rank 0
 
-      Second machine
+      #Second machine
 
         python train.py --dist-url 'tcp://IP_OF_NODE2:FREEPORT' --dist-backend 'nccl' --multiprocessing-distributed --world-size 2 --rank 1
 
-  To reproduce the results, you can run the bash shell script
+ # To reproduce the results, you can run the bash shell script
 
     ./train.sh
 
-  Tensorboard
+ ## Tensorboard
 
     To track the training progress, go to the logs/ folder and
 
@@ -92,6 +92,7 @@ python evaluate.py --gpu_idx 0 --pretrained_path <PATH> --cfgfile <CFG> --img_si
       tensorboard --logdir=./
 
     Then go to http://localhost:6006/:
+  
 ## Folder structure
 ```   
 ${ROOT}
