@@ -92,6 +92,7 @@ python evaluate.py --gpu_idx 0 --pretrained_path <PATH> --cfgfile <CFG> --img_si
       tensorboard --logdir=./
 
     Then go to http://localhost:6006/:
+## Folder structure
 ```   
 ${ROOT}
 └── checkpoints/    
